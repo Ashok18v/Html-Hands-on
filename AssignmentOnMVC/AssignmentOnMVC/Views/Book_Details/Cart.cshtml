@@ -1,0 +1,21 @@
+﻿@model IEnumerable<AssignmentOnMVC.Models.Book_Details>
+@using AssignmentOnMVC.Controllers
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Cart</h2>
+<div class="container-md"><div class="row" style="font-size:30px;">
+    @foreach(var item in Model)
+    { 
+        <div class="col-md-4" style="padding-bottom:20px;">
+             <img src="/Images/@item.Image" height="100" width="100"/> <br>
+             @item.Name  <br>
+              &#8377; @item.Cost<br>
+              <a asp-action="" asp-route-id="@item.Id" asp-controller="" class="btn btn-success">Buy</a>
+              <a asp-action="DeleteinCart" asp-route-id="@item.Id" asp-controller="Book_Details" class="btn btn-danger">Remove </a>
+        </div>  
+    }
+    </div>
+    
+</div>

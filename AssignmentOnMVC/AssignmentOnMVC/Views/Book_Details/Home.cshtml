@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AssignmentOnMVC.Models.Book_Details>
+@using AssignmentOnMVC.Controllers
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+<form asp-action="search">
+<div class="row">
+    <div class="col-sm-6"><p><a asp-action="Create" class="btn btn-primary">Add New Book</a></p> </div>
+    <div class="col-sm-5">
+        <span><input type="search" name="search" class="form-control" /></span>
+    </div>
+    <div class="col-sm-1"><input type="submit" value="Search" class="btn btn-secondary"/></div>
+</div>
+</form>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach(var item in Model)
+            {
+            <div class="col-md-3" style="border-style: ridge;">
+             <p><img src="/Images/@item.Image" height="250" width="250"/></p>
+            <div class="row">
+             <div class="col-sm-12">
+            <h3 class="text-center" style="margin:0;padding:0;">@item.Name</h3> <br> </div></div>
+              <div class="row"><div class="col-sm-4"></div>
+             <div class="col-sm-4" style="margin:0;padding:0;">
+            <div>
+            <a  asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> </div></div><div class="col-sm-4" style="margin:0;padding:0;">
+             
+             </div><div class="col-sm-4"></div>
+             </div>
+            
+            
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
